@@ -1,0 +1,187 @@
+function cacaNiquel(ganhador, trofeu, button){
+    chamaGif()
+    // trocaImg(ganhador, trofeu, button)
+    // setTimeout(escondeGif, 7500, ganhador, trofeu, button, "separador")
+    setTimeout(escondeGif, 5000, ganhador, trofeu, button, "separador")
+}
+function trocaImg(ganhador, trofeu, button){
+    let gif = document.getElementById("gif")
+    gif.src = "assets/img/Caca-Niquel.gif"
+    setTimeout(escondeGif, 5000, ganhador, trofeu, button, "separador")
+}
+
+function displayFlex(){
+    return "flex"
+}
+function displayNone(){
+    return "none"
+}
+function displayInlineBlock(){
+    return 'inline-block'
+}
+function chamaGif(){
+    document.getElementById("gif-container").classList.remove("hide")
+    document.getElementById("gif-container").classList.add("show")
+    let gif = document.getElementById("gif")
+    gif.src = "assets/img/cacaNiquel.gif"
+}
+function escondeGif(ganhador, trofeu, button, separador){
+    document.getElementById("gif-container").style.display = displayNone()
+    document.getElementById(button).style.display = displayNone()
+    document.getElementById(ganhador).style.display = displayInlineBlock()
+    document.getElementById(trofeu).style.display = displayFlex()
+    document.getElementById(separador).style.display = displayNone()
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/*
+* inserir imagem no php
+* background-image: url("/sorteioacademiaseigan/assets/img/backtrofeu.jpg"); 
+*/
+
+#separador{
+    height: 150px;
+    display: block;
+}
+h1{
+    text-align: center;
+    font-size: 70px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+#gif-container{
+    width: 100%;
+    margin-top: 15px;
+    background-color: white;
+    padding-left: 400px;
+    position: absolute;
+    transition: all 1s;
+}
+.show{
+    opacity: 1;
+}
+.hide{
+    opacity: 0;
+}
+
+
+#gif{
+    clear: both;
+    margin: 0 auto;
+}
+
+.buttons, #trofeis{
+    text-align: center;
+    clear: both;
+    width: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+}
+#ganhador1, #ganhador2, #ganhador3, #trofeu1, #trofeu2, #trofeu3 {
+    display: none;
+}
+.buttonStyle{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13;
+    width: 165px;
+    height: 35px;
+    background-color: #0066b8;
+    padding: 9px 50px;
+    border: none;
+    color: white;
+}
+.buttonStyle:hover{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13;
+    width: 165px;
+    height: 35px;
+    background-color: #034377;
+    padding: 9px 50px;
+    font-weight: bold;
+    border: none;
+    color: white;
+}
+.buttonStyle:active{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13;
+    width: 165px;
+    height: 35px;
+    background-color: #5e84a3;
+    padding: 9px 50px;
+    font-weight: bold;
+    border: none;
+    color: white;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+}
+.esconde{
+    opacity: 0;
+}
+.mostra{
+    opacity: 1;
+}
+
+
+
+<?php
+    require_once("versorteio.php");
+
+?>
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Sorteio</title>
+    </head>
+    <body>
+        <!-- <section id="gif-container" class="hide">
+            <img id="gif" src="" alt="Sorteio Seigan" onclick="trocaImg()"> -->
+        <section id="gif-container">
+            <img id="gif" src="" alt="Sorteio Seigan">
+        </section>
+        <head>
+            <h1>Sorteio da Academia Seigan</h1>
+        </head>
+        <div id="separador"></div>
+        
+        <section id="trofeis">
+            <div>
+                <p id="ganhador1"><?= strtoupper($verSorteioGanhador1[0])?></p>
+                <span><img id="trofeu1" src="assets/img/trofeu.png" alt=""></span>
+                <input id="button1" class="buttons buttonStyle" type="button" value="1º SORTEIO" onclick="cacaNiquel('ganhador1', 'trofeu1', 'button1')">
+            </div>
+            <div>
+                <p id="ganhador2"><?= strtoupper($verSorteioGanhador2[0])?></p>
+                <span><img id="trofeu2" src="assets/img/trofeu.png" alt=""></span>
+                <input id="button2" class="buttons buttonStyle" type="button" value="2º SORTEIO" onclick="cacaNiquel('ganhador2', 'trofeu2', 'button2')">
+
+            </div>
+            <div>
+                <p id="ganhador3"><?= strtoupper($verSorteioGanhador3[0])?></p>
+                <span><img id="trofeu3" src="assets/img/trofeu.png" alt=""></span>
+                <input id="button3" class="buttons buttonStyle" type="button" value="3º SORTEIO" onclick="cacaNiquel('ganhador3', 'trofeu3', 'button3')">
+            </div>
+        </section>
+        <script src="assets/js/animacao.js"></script>
+    </body>
+</html>

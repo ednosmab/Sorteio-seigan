@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1{
+    text-align: center;
+    font-size: 70px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+section#gif-container{
+    transition: all 5s;
+    display: none;
+    width: 100%;
+    margin-top: 15px;
+    background-color: white;
+    padding: 0;
+    position: absolute;
+    
+}
+#gif{
+    clear: both;
+    margin: 0 auto;
+}
+
+.buttons, #trofeis{
+    text-align: center;
+    clear: both;
+    width: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+}
+#ganhador1, #ganhador2, #ganhador3, #trofeu1, #trofeu2, #trofeu3 {
+    display: block;
+}
+#ganhador1, #ganhador2, #ganhador3{
+    transition-delay: 2s;
+    transition-duration: 3s;
+    
+}
+#trofeu1, #trofeu2, #trofeu3{
+    transition: all 1s;
+
+}
+
+.show{
+    opacity: 1;
+}
+.hide{
+    opacity: 0;
+}
+.buttonStyle{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13;
+    width: 165px;
+    height: 50px;
+    background-color: #0066b8;
+    padding: 9px 50px;
+    border: none;
+    color: white;
+}
+.buttonStyle:hover{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13;
+    width: 165px;
+    height: 50px;
+    background-color: #034377;
+    padding: 9px 50px;
+    font-weight: bold;
+    border: none;
+    color: white;
+}
+.buttonStyle:active{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13;
+    width: 165px;
+    height: 50px;
+    background-color: #5e84a3;
+    padding: 9px 50px;
+    font-weight: bold;
+    border: none;
+    color: white;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+}
+
